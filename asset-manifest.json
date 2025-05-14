@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/mindmatters-app/static/css/main.dca5cbbd.chunk.css",
-    "main.js": "/mindmatters-app/static/js/main.3e99915c.chunk.js",
+    "main.js": "/mindmatters-app/static/js/main.e5b83cf2.chunk.js",
     "runtime-main.js": "/mindmatters-app/static/js/runtime-main.39afc695.js",
     "static/js/2.64c6ccfe.chunk.js": "/mindmatters-app/static/js/2.64c6ccfe.chunk.js",
     "index.html": "/mindmatters-app/index.html",
@@ -11,6 +11,6 @@
     "static/js/runtime-main.39afc695.js",
     "static/js/2.64c6ccfe.chunk.js",
     "static/css/main.dca5cbbd.chunk.css",
-    "static/js/main.3e99915c.chunk.js"
+    "static/js/main.e5b83cf2.chunk.js"
   ]
 }

@@ -1,4 +1,5 @@
 // MindMatters Service Worker
+// Add your base path for GitHub Pages
 const BASE_PATH = '/mindmatters-app';
 
 const CACHE_NAME = 'mindmatters-cache-v1';
