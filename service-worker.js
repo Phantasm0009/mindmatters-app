@@ -1,50 +1,49 @@
-// MindMatters Service Worker
+// Basic service worker with offline support
 const CACHE_NAME = 'mindmatters-cache-v1';
-const urlsToCache = [
-  './',
-  './index.html',
-  './offline.html'
-];
 
-// Don't attempt to cache external resources that might fail
-self.addEventListener('install', event => {
+// Install event - cache basic assets
+self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
+      .then((cache) => {
+        return cache.addAll([
+          './', 
+          './index.html',
+          './offline.html'
+        ]);
       })
-      .catch(err => console.error('Cache addAll failed:', err))
+      .catch(err => console.log('Cache error:', err))
   );
-  self.skipWaiting();
 });
 
-// Use a cache-first strategy with network fallback
-self.addEventListener('fetch', event => {
-  // Skip cross-origin requests
-  if (!event.request.url.startsWith(self.location.origin)) {
-    return;
-  }
-  
+// Activate event
+self.addEventListener('activate', (event) => {
+  event.waitUntil(self.clients.claim());
+});
+
+// Fetch event - simple network-first strategy
+self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        if (response) {
-          return response;
-        }
-        
-        return fetch(event.request).catch(() => {
-          // For navigation requests, return the offline page
-          if (event.request.mode === 'navigate') {
-            return caches.match('./offline.html');
-          }
-          
-          // Otherwise just fail
-          return new Response('Network error', {
-            status: 408,
-            headers: { 'Content-Type': 'text/plain' }
+    fetch(event.request)
+      .catch(() => {
+        return caches.match(event.request)
+          .then((cachedResponse) => {
+            if (cachedResponse) {
+              return cachedResponse;
+            }
+            
+            // For navigation requests, serve index.html
+            if (event.request.mode === 'navigate') {
+              return caches.match('./index.html');
+            }
+            
+            // Return a simple offline response
+            return new Response('Network error', {
+              status: 408,
+              headers: { 'Content-Type': 'text/plain' }
+            });
           });
-        });
       })
   );
 });
