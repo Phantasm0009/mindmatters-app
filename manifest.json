@@ -89,14 +89,14 @@
     {
       "name": "New Journal Entry",
       "short_name": "New Entry",
-      "url": "/journal",
+      "url": "./journal",
       "description": "Create a new journal entry",
       "icons": [{ "src": "icons/shortcut-journal.png", "sizes": "96x96" }]
     },
     {
       "name": "SOS Emergency",
       "short_name": "SOS",
-      "url": "/emergency-contacts",
+      "url": "./emergency-contacts",
       "description": "Access emergency contacts",
       "icons": [{ "src": "icons/shortcut-sos.png", "sizes": "96x96" }]
     }

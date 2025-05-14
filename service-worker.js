@@ -1,7 +1,5 @@
 // MindMatters Service Worker
-const GITHUB_PAGES_PATH = '/mindmatters-app';
-const isGitHubPages = self.location.pathname.startsWith(GITHUB_PAGES_PATH);
-const BASE_PATH = isGitHubPages ? GITHUB_PAGES_PATH : '';
+const BASE_PATH = '/mindmatters-app';
 
 const CACHE_NAME = 'mindmatters-cache-v1';
 
