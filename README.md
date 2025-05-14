@@ -20,7 +20,7 @@ MindMatters is an offline-first, privacy-focused mental health journal designed 
 ## Installation
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/mindmatters-app.git
+   git clone https://github.com/Phantasm0009/mindmatters-app.git
    ```
 2. Navigate to the project directory:
    ```
