@@ -1,0 +1,235 @@
+.notification-manager {
+    background-color: var(--background-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: 25px;
+    margin-bottom: 30px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.notification-manager h2 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--background-dark);
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.notification-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-transparent);
+    border-left: 4px solid var(--primary-color);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    position: relative;
+    animation: slideIn 0.5s ease;
+}
+
+.notification-banner p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-primary);
+    flex: 1;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.banner-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    animation: pulse 2s infinite;
+}
+
+.enable-btn {
+    background-color: var(--primary-color);
+    color: var(--text-on-primary);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.enable-btn:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 0 8px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close-btn:hover {
+    color: var(--text-primary);
+}
+
+.notification-settings {
+    padding: 10px 0;
+}
+
+.setting-group {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--background-dark);
+}
+
+.setting-group:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Styled toggle switch */
+.toggle-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background-dark);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: var(--primary-color);
+}
+
+input:disabled + .toggle-slider {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(30px);
+}
+
+.notification-warning {
+    color: var(--accent-color);
+    margin-top: 10px;
+    font-size: 0.9rem;
+    background-color: rgba(234, 67, 53, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Time picker styling */
+.time-picker {
+    padding: 10px;
+    border: 1px solid var(--background-dark);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-primary);
+    background-color: var(--background-white);
+    width: 100%;
+    max-width: 150px;
+    margin-top: 10px;
+    transition: all 0.3s;
+}
+
+.time-picker:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--primary-transparent);
+}
+
+.time-picker:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.setting-hint {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 8px;
+    font-style: italic;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .notification-manager {
+        padding: 15px;
+    }
+    
+    .notification-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 15px 20px 15px;
+    }
+    
+    .notification-banner p {
+        margin-bottom: 10px;
+    }
+    
+    .enable-btn {
+        align-self: flex-start;
+    }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MindMatters - Mental Health Journal</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="An offline-first mental health journal to track mood, manage stress, and access emergency help.">
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="MindMatters">
+    
+    <!-- Open Graph / Social Meta Tags -->
+    <meta property="og:title" content="MindMatters - Mental Health Journal">
+    <meta property="og:description" content="Track your mood, manage stress, and access emergency help, all offline-first.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mindmatters-app.com/">
+    <meta property="og:image" content="https://mindmatters-app.com/social-share.png">
+    
+    <!-- Icons and Manifests -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="icons/apple-icon-180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="icons/apple-icon-167.png">
+    
+    <!-- Splash Screens for iOS -->
+    <link rel="apple-touch-startup-image" href="icons/apple-splash-2048-2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="icons/apple-splash-1668-2388.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="icons/apple-splash-1536-2048.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="icons/apple-splash-1242-2688.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="icons/apple-splash-1125-2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="icons/apple-splash-828-1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="icons/apple-splash-750-1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="icons/apple-splash-640-1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="root"></div>
+    <div id="pwa-installation-banner" style="display: none;">
+        <div class="pwa-banner-content">
+            <p>Get the full app experience</p>
+            <button id="install-button">Install MindMatters</button>
+            <button id="close-banner" aria-label="Close">×</button>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="../src/index.js" type="module"></script>
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered with scope:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('ServiceWorker registration failed:', error);
+                    });
+            });
+        }
+        
+        // PWA Installation Logic
+        let deferredPrompt;
+        const installBanner = document.getElementById('pwa-installation-banner');
+        const installButton = document.getElementById('install-button');
+        const closeBanner = document.getElementById('close-banner');
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            // Update UI to notify the user they can install the PWA
+            installBanner.style.display = 'block';
+        });
+        
+        installButton.addEventListener('click', async () => {
+            if (!deferredPrompt) {
+                return;
+            }
+            // Show the install prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            const { outcome } = await deferredPrompt.userChoice;
+            // We no longer need the prompt regardless of outcome
+            deferredPrompt = null;
+            // Hide the installation banner
+            installBanner.style.display = 'none';
+        });
+        
+        closeBanner.addEventListener('click', () => {
+            installBanner.style.display = 'none';
+            // Optionally, store a preference to not show again for a while
+            localStorage.setItem('installBannerDismissed', Date.now().toString());
+        });
+        
+        // Check if the app is already installed or running as a PWA
+        window.addEventListener('appinstalled', () => {
+            // Clear the deferredPrompt variable
+            deferredPrompt = null;
+            // Hide the install banner
+            installBanner.style.display = 'none';
+            // Log the installation to analytics
+            console.log('PWA was installed');
+        });
+    </script>
+</body>
+</html>

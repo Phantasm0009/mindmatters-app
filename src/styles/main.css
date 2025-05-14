@@ -1,0 +1,501 @@
+:root {
+  /* Base theme variables */
+  --primary-color: #4285f4;
+  --primary-color-light: #5e97f6;
+  --primary-color-dark: #3367d6;
+  --primary-transparent: rgba(66, 133, 244, 0.15);
+  --secondary-color: #34a853;
+  --accent-color: #ea4335;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-light: #999999;
+  --text-on-primary: #ffffff;
+  --text-on-secondary: #ffffff;
+  --text-on-accent: #ffffff;
+  --background-light: #f5f5f5;
+  --background-dark: #f0f0f0;
+  --background-white: #ffffff;
+  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --card-border-color: rgba(66, 133, 244, 0.3);
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+  
+  /* Specific emotion colors for consistent use in components */
+  --happy-color: rgb(255, 195, 0);
+  --excited-color: rgb(255, 89, 94);
+  --calm-color: rgb(86, 161, 200);
+  --relaxed-color: rgb(106, 177, 135);
+  --neutral-color: rgb(190, 190, 190);
+  --sad-color: rgb(108, 117, 187);
+  --stressed-color: rgb(242, 103, 34);
+  --angry-color: rgb(201, 42, 42);
+  --anxious-color: rgb(255, 177, 0);
+  --tired-color: rgb(147, 112, 170);
+  --grateful-color: rgb(41, 166, 126);
+  
+  /* Add transition for smooth theme changes */
+  transition: background-color 0.5s ease, 
+              color 0.5s ease,
+              border-color 0.5s ease,
+              box-shadow 0.5s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: var(--primary-color-dark);
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+  transition: all var(--transition-speed);
+}
+
+.button:hover {
+  background-color: var(--primary-color-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.button-secondary {
+  background-color: var(--secondary-color);
+}
+
+.button-secondary:hover {
+  background-color: #2d8a47;
+}
+
+.button-danger {
+  background-color: var(--accent-color);
+}
+
+.button-danger:hover {
+  background-color: #d32f2f;
+}
+
+/* Cards */
+.card {
+  background-color: var(--background-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Form elements */
+input, textarea, select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Layout */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 15px;
+  }
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Add these styles to your main.css for page transitions */
+
+.fade-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.dashboard-content {
+  animation: contentFadeIn 0.4s ease-out;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add theme status styles */
+.theme-status {
+  margin-bottom: 15px;
+  opacity: 0.7;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Offline mode indicator styles */
+.offline-mode .dashboard-header {
+  position: relative;
+}
+
+.offline-mode .dashboard-header::after {
+  content: 'OFFLINE MODE';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive styles for PWA installation */
+.pwa-install-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--background-white);
+  padding: 15px 20px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  animation: slideUpBanner 0.5s ease;
+}
+
+@keyframes slideUpBanner {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.pwa-install-banner p {
+  margin: 0;
+  flex: 1;
+  font-weight: 500;
+}
+
+.pwa-install-banner button {
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.install-button-banner {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+}
+
+.close-button-banner {
+  background-color: transparent;
+  color: var(--text-secondary);
+}
+
+/* Status indicators in settings */
+.status-value {
+  font-weight: 600;
+}
+
+.status-value.online {
+  color: #34a853;
+}
+
+.status-value.offline {
+  color: #ea4335;
+}
+
+/* Storage usage bar */
+.usage-bar-container {
+  width: 100%;
+  height: 8px;
+  background-color: var(--background-dark);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.usage-bar {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.usage-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Toggle switches */
+.toggle-setting {
+  margin-bottom: 20px;
+}
+
+.toggle-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background-dark);
+  border-radius: 34px;
+  transition: .4s;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--primary-color);
+}
+
+input:disabled + .toggle-slider {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+/* Time settings */
+.time-setting {
+  margin-top: 15px;
+}
+
+.time-setting input {
+  margin-top: 10px;
+  width: 100%;
+  max-width: 150px;
+  padding: 8px;
+  border: 1px solid var(--background-dark);
+  border-radius: 4px;
+}
+
+.time-note {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* PWA not installable */
+.install-note {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: var(--background-dark);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Warning text */
+.warning-text {
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Settings buttons */
+.settings-btn {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.settings-btn:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.settings-btn:disabled {
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  cursor: not-allowed;
+}
+
+/* Settings warning */
+.settings-warning {
+  color: var(--accent-color);
+  background-color: rgba(234, 67, 53, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+}

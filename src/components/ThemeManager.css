@@ -1,0 +1,258 @@
+.theme-manager-container {
+  position: relative;
+}
+
+.theme-picker-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.theme-picker-button:hover {
+  transform: rotate(30deg);
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.theme-icon {
+  font-size: 24px;
+}
+
+.theme-picker {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  width: 340px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 999;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.theme-picker h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.theme-picker h4 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.theme-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.theme-option {
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.theme-option.active {
+  border-color: var(--primary-color);
+  background-color: var(--primary-transparent);
+}
+
+.theme-option:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.theme-preview {
+  width: 100%;
+  height: 60px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-preview::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Improved theme previews */
+.theme-preview.auto {
+  background: linear-gradient(135deg, 
+    #4285f4 0%, #4285f4 25%,
+    #34a853 25%, #34a853 50%,
+    #fbbc04 50%, #fbbc04 75%,
+    #ea4335 75%, #ea4335 100%
+  );
+}
+
+.theme-preview.happy {
+  background: linear-gradient(135deg, 
+    rgb(255, 195, 0) 0%, 
+    rgb(255, 153, 51) 100%
+  );
+}
+
+.theme-preview.calm {
+  background: linear-gradient(135deg, 
+    rgb(86, 161, 200) 0%, 
+    rgb(121, 189, 154) 100%
+  );
+}
+
+.theme-preview.neutral {
+  background: linear-gradient(135deg, 
+    rgb(190, 190, 190) 0%, 
+    rgb(160, 160, 170) 100%
+  );
+}
+
+.theme-preview.sad {
+  background: linear-gradient(135deg, 
+    rgb(108, 117, 187) 0%, 
+    rgb(143, 158, 191) 100%
+  );
+}
+
+.theme-preview.excited {
+  background: linear-gradient(135deg, 
+    rgb(255, 89, 94) 0%, 
+    rgb(255, 130, 67) 100%
+  );
+}
+
+.theme-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.generate-theme {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+/* Enhanced mood buttons */
+.mood-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.mood-buttons button {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-weight: 500;
+  color: white;
+}
+
+/* Style each mood button with its corresponding color */
+.mood-buttons .mood-excited {
+  background-color: rgb(255, 89, 94);
+}
+
+.mood-buttons .mood-happy {
+  background-color: rgb(255, 195, 0);
+  color: #333;
+}
+
+.mood-buttons .mood-calm {
+  background-color: rgb(86, 161, 200);
+}
+
+.mood-buttons .mood-relaxed {
+  background-color: rgb(106, 177, 135);
+}
+
+.mood-buttons .mood-neutral {
+  background-color: rgb(190, 190, 190);
+  color: #333;
+}
+
+.mood-buttons .mood-sad {
+  background-color: rgb(108, 117, 187);
+}
+
+.mood-buttons .mood-anxious {
+  background-color: rgb(255, 177, 0);
+  color: #333;
+}
+
+.mood-buttons .mood-tired {
+  background-color: rgb(147, 112, 170);
+}
+
+.mood-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.theme-applying {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.theme-spinner {
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 3px solid var(--primary-color);
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

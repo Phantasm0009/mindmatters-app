@@ -1,0 +1,401 @@
+.emergency-contacts {
+    background-color: var(--background-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: 25px;
+    margin-bottom: 30px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.emergency-contacts h2 {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--background-dark);
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.emergency-icon {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.contacts-info {
+    background-color: var(--background-dark);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.contacts-info p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.contacts-container {
+    background-color: var(--background-white);
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-bottom: 25px;
+}
+
+.contacts-list {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.contact-card {
+    background-color: var(--background-dark);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.contact-info {
+    flex-grow: 1;
+}
+
+.contact-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+}
+
+.contact-info p {
+    margin: 5px 0 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.contact-actions button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.test-call-btn {
+    background-color: var(--calm-color);
+    color: white;
+}
+
+.test-call-btn:hover {
+    background-color: #4e92bb;
+    transform: scale(1.1);
+}
+
+.edit-contact-btn {
+    background-color: var(--neutral-color);
+}
+
+.edit-contact-btn:hover {
+    background-color: #b0b0b0;
+    transform: scale(1.1);
+}
+
+.remove-contact-btn {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.remove-contact-btn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.1);
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+}
+
+.no-contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: var(--background-dark);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.no-contacts-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--text-light);
+    background-color: var(--background-white);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.no-contacts p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.no-contacts-subtitle {
+    font-size: 0.9rem !important;
+    color: var(--text-light) !important;
+    margin-top: 5px !important;
+}
+
+.add-contact-button {
+    background-color: var(--primary-color);
+    color: var(--text-on-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 20px auto 0;
+    width: 100%;
+    max-width: 300px;
+}
+
+.add-contact-button:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.contact-form-container {
+    background-color: var(--background-dark);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.contact-form-container h3 {
+    margin: 0 0 15px;
+    color: var(--text-primary);
+    font-size: 1.3rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.phone-format-hint {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 3px;
+}
+
+.form-error {
+    background-color: rgba(234, 67, 53, 0.1);
+    color: var(--accent-color);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.save-contact-btn {
+    background-color: var(--primary-color);
+    color: var(--text-on-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 3;
+}
+
+.save-contact-btn:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.cancel-btn {
+    background-color: var(--background-white);
+    color: var(--text-secondary);
+    border: 1px solid var(--text-light);
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.cancel-btn:hover {
+    background-color: var(--background-dark);
+}
+
+.success-message {
+    background-color: rgba(52, 168, 83, 0.1);
+    color: #34a853;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.sos-guide {
+    background: linear-gradient(to right, rgba(234, 67, 53, 0.05), transparent);
+    border-left: 4px solid var(--accent-color);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.sos-guide h3 {
+    color: var(--text-primary);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.sos-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.sos-step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.step-number {
+    width: 30px;
+    height: 30px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.sos-step p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.sos-note {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.sos-note p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .emergency-contacts {
+        padding: 15px;
+    }
+    
+    .emergency-contacts h2 {
+        font-size: 1.5rem;
+    }
+    
+    .contact-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .contact-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .contact-actions button {
+        flex: 1;
+        max-width: 80px;
+        border-radius: 20px;
+        height: 40px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .save-contact-btn,
+    .cancel-btn {
+        width: 100%;
+    }
+    
+    .sos-steps {
+        gap: 20px;
+    }
+    
+    .sos-step {
+        align-items: flex-start;
+    }
+    
+    .step-number {
+        margin-top: 2px;
+    }
+}

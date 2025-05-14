@@ -1,0 +1,329 @@
+.journal-log {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin-bottom: 30px;
+    animation: slideIn 0.5s ease-out;
+}
+
+.journal-log h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.journal-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 250px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    border-color: #4285f4;
+    background-color: #fff;
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
+.filter-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-controls button {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.filter-controls button:hover {
+    background-color: #e8f0fe;
+}
+
+.filter-controls button.active {
+    background-color: #4285f4;
+    color: white;
+    border-color: #4285f4;
+}
+
+.entries-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+.entry-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #eaeaea;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid #4285f4;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.entry-card:hover {
+    background-color: #f0f7fe;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #34a853;
+}
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.entry-date {
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.entry-mood {
+    font-weight: 500;
+}
+
+.entry-preview {
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+.entry-preview p {
+    color: #555;
+    line-height: 1.5;
+}
+
+.no-content {
+    color: #999;
+    font-style: italic;
+}
+
+.entry-footer {
+    margin-top: auto;
+}
+
+.entry-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.activity-tag {
+    background-color: #e8f0fe;
+    color: #4285f4;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+.more-tag {
+    background-color: #efefef;
+    color: #777;
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+.no-entries {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    color: #666;
+}
+
+/* Modal styles */
+.entry-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.entry-modal {
+    background-color: white;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    border-radius: 12px;
+    padding: 25px;
+    position: relative;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #777;
+    transition: color 0.2s;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+.entry-modal-date {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.entry-modal-mood {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.large-emoji {
+    font-size: 36px;
+    margin-right: 15px;
+}
+
+.entry-modal-mood h3 {
+    margin: 0;
+    color: #333;
+    font-size: 22px;
+}
+
+.entry-modal-section {
+    margin-bottom: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.entry-modal-section h4 {
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.entry-modal-section p {
+    line-height: 1.6;
+}
+
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid #4285f4;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .journal-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-box {
+        min-width: 100%;
+    }
+    
+    .filter-controls {
+        justify-content: space-between;
+    }
+    
+    .entries-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Add to your existing JournalLog.css */
+
+.entry-weather {
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.weather-icon {
+    font-size: 1.2rem;
+}
+
+.weather-temp {
+    font-weight: 500;
+}
+
+/* Modal weather display */
+.entry-modal-weather {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+    color: #777;
+}
+
+.entry-modal-weather .weather-icon {
+    font-size: 1.3rem;
+}

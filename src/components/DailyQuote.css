@@ -1,0 +1,246 @@
+.daily-quote {
+    background-color: var(--background-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: 25px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.daily-quote:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.daily-quote h2 {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--background-dark);
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quote-content {
+    padding: 20px 0;
+    position: relative;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quote-content blockquote {
+    position: relative;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    padding: 10px 30px;
+    margin: 0 0 20px 0;
+}
+
+/* Decorative quotation marks */
+.quote-content blockquote::before,
+.quote-content blockquote::after {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.1;
+    font-family: Georgia, serif;
+    line-height: 1;
+    color: var(--primary-color);
+}
+
+.quote-content blockquote::before {
+    content: "“";
+    left: -5px;
+    top: -10px;
+}
+
+.quote-content blockquote::after {
+    content: "”";
+    right: 0;
+    bottom: -30px;
+}
+
+.quote-content blockquote p {
+    margin-bottom: 10px;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+}
+
+.quote-content blockquote footer {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    text-align: right;
+    font-weight: 500;
+}
+
+.quote-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+}
+
+.quote-spinner {
+    border: 4px solid rgba(66, 133, 244, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid var(--primary-color);
+    width: 40px;
+    height: 40px;
+    animation: quote-spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes quote-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.quote-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.refresh-quote, .copy-quote {
+    background-color: var(--background-dark);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.refresh-quote:hover, .copy-quote:hover {
+    background-color: var(--primary-transparent);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.refresh-quote:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.refresh-icon, .copy-icon {
+    font-size: 16px;
+}
+
+.refresh-icon.spinning {
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.offline-indicator {
+    font-size: 0.9rem;
+    background-color: var(--background-dark);
+    color: var(--text-secondary);
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 10px;
+    font-weight: normal;
+    font-size: 0.8em;
+    vertical-align: middle;
+}
+
+.offline-quote {
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 0.8em;
+    margin-left: 8px;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+    .daily-quote {
+        padding: 20px;
+    }
+    
+    .quote-content blockquote {
+        font-size: 1.1rem;
+        padding: 10px 20px;
+    }
+    
+    .quote-content blockquote::before {
+        font-size: 2.5rem;
+    }
+    
+    .quote-content blockquote::after {
+        font-size: 2.5rem;
+    }
+}
+
+.quote-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.quote-tag {
+    background-color: var(--primary-transparent);
+    color: var(--primary-color);
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.author-name.has-bio {
+    cursor: pointer;
+    border-bottom: 1px dotted var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-icon {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.author-bio {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: var(--background-dark);
+    border-radius: 8px;
+    font-style: normal;
+    animation: fadeIn 0.3s ease;
+}
+
+.author-bio h4 {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.author-bio p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

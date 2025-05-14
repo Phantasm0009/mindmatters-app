@@ -1,0 +1,494 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+/* Update the header styles */
+.dashboard-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-on-primary);
+    padding: 30px 20px;
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 20px;
+    position: relative;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: background 0.5s ease;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Add this new pattern overlay for more visual interest */
+.dashboard-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
+                      radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 20%);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Make sure content stays above the background pattern */
+.dashboard-header h1, 
+.dashboard-header p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+
+.dashboard-header h1 {
+    font-size: 2.4rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.dashboard-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.header-sos {
+    position: relative;
+    z-index: 2;
+}
+
+/* Navigation container */
+.nav-container {
+    position: relative;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--background-white);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    z-index: 10;
+}
+
+/* Improved navigation styling */
+.dashboard-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    background-color: var(--background-white);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-category {
+    flex: 1;
+    padding: 12px;
+    border-right: 1px solid var(--background-dark);
+}
+
+.nav-category:last-child {
+    border-right: none;
+}
+
+.category-heading {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-light);
+    padding: 8px 12px;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-button {
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-button::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+    opacity: 0;
+}
+
+.nav-button:hover {
+    background-color: var(--primary-transparent);
+    color: var(--primary-color);
+}
+
+.nav-button:hover::before {
+    width: 100%;
+    opacity: 1;
+}
+
+.nav-button.active {
+    background-color: var(--primary-color);
+    color: var(--text-on-primary);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.nav-button.active::before {
+    display: none;
+}
+
+.nav-icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Mobile hamburger menu button */
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    position: relative;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.hamburger {
+    width: 24px;
+    height: 3px;
+    background-color: var(--text-on-primary);
+    position: relative;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 3px;
+    background-color: var(--text-on-primary);
+    transition: transform 0.3s ease;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    bottom: -8px;
+}
+
+.hamburger.active {
+    background-color: transparent;
+}
+
+.hamburger.active::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.hamburger.active::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+.dashboard-content {
+    flex: 1;
+    padding: 0 20px 40px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Add specific header styles for each emotion */
+.mood-happy .dashboard-header {
+    background: linear-gradient(135deg, var(--happy-color), #ffb347);
+}
+
+.mood-excited .dashboard-header {
+    background: linear-gradient(135deg, var(--excited-color), #ff7e5f);
+}
+
+.mood-calm .dashboard-header {
+    background: linear-gradient(135deg, var(--calm-color), #7fc8f8);
+}
+
+.mood-relaxed .dashboard-header {
+    background: linear-gradient(135deg, var(--relaxed-color), #a8e6cf);
+}
+
+.mood-neutral .dashboard-header {
+    background: linear-gradient(135deg, var(--neutral-color), #d8d8d8);
+}
+
+.mood-sad .dashboard-header {
+    background: linear-gradient(135deg, var(--sad-color), #9fa8da);
+}
+
+.mood-stressed .dashboard-header {
+    background: linear-gradient(135deg, var(--stressed-color), #ff9e5e);
+}
+
+.mood-anxious .dashboard-header {
+    background: linear-gradient(135deg, var(--anxious-color), #ffcc80);
+}
+
+.mood-tired .dashboard-header {
+    background: linear-gradient(135deg, var(--tired-color), #b39ddb);
+}
+
+/* Offline indicator styles */
+.offline-indicator {
+    background-color: #ea4335;
+    color: white;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+    margin-right: 10px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+}
+
+/* Settings link styles */
+.settings-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.settings-link:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: rotate(30deg);
+}
+
+.settings-link.active {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: rotate(30deg);
+}
+
+.settings-icon {
+    font-size: 1.3rem;
+    color: var(--text-on-primary);
+}
+
+/* Header actions container */
+.header-actions {
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+/* PWA installation banner styling */
+#pwa-installation-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--background-white);
+    padding: 15px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: slideUp 0.5s ease;
+}
+
+.pwa-banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.pwa-banner-content p {
+    margin: 0;
+    font-weight: 500;
+}
+
+#install-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+#install-button:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+}
+
+#close-banner {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+    padding: 0 8px;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .nav-label {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        padding: 15px;
+        flex-wrap: wrap;
+        border-radius: 0;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .header-content {
+        flex: 1;
+    }
+    
+    .mobile-nav-toggle {
+        display: block;
+        margin-right: 15px;
+    }
+    
+    .header-actions {
+        order: -1;
+        width: 100%;
+        margin-bottom: 10px;
+        justify-content: flex-end;
+    }
+    
+    .header-content {
+        order: 1;
+    }
+    
+    .mobile-nav-toggle {
+        order: 2;
+    }
+    
+    .nav-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        margin: 0;
+        border-radius: 0;
+        overflow-y: auto;
+    }
+    
+    .nav-container.mobile-open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    
+    .dashboard-nav {
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100%;
+        background-color: var(--background-white);
+        padding: 20px 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        overflow-y: auto;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .mobile-open .dashboard-nav {
+        transform: translateX(0);
+    }
+    
+    .nav-category {
+        border-right: none;
+        border-bottom: 1px solid var(--background-dark);
+        padding: 5px 15px 15px;
+    }
+    
+    .nav-category:last-child {
+        border-bottom: none;
+    }
+    
+    .dashboard-content {
+        padding: 0 15px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .dashboard-header p {
+        font-size: 0.9rem;
+    }
+}
