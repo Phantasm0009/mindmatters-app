@@ -1,0 +1,124 @@
+{
+  "name": "MindMatters - Mental Health Journal",
+  "short_name": "MindMatters",
+  "description": "An offline-first mental health journal to track mood, manage stress, and access emergency help.",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#4CAF50",
+  "categories": ["health", "lifestyle", "wellness", "productivity"],
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/maskable-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/journal-entry-screen.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Journal Entry Screen"
+    },
+    {
+      "src": "screenshots/mood-tracker-screen.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Mood Tracking Dashboard"
+    },
+    {
+      "src": "screenshots/breathing-exercises-screen.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Breathing Exercises"
+    }
+  ],
+  "scope": ".",
+  "shortcuts": [
+    {
+      "name": "New Journal Entry",
+      "short_name": "New Entry",
+      "url": "./journal",
+      "description": "Create a new journal entry",
+      "icons": [{ "src": "icons/shortcut-journal.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "SOS Emergency",
+      "short_name": "SOS",
+      "url": "./emergency-contacts",
+      "description": "Access emergency contacts",
+      "icons": [{ "src": "icons/shortcut-sos.png", "sizes": "96x96" }]
+    }
+  ],
+  "launch_handler": {
+    "route_to": "existing-client",
+    "navigate_existing_client": "always"
+  },
+  "prefer_related_applications": false
+}

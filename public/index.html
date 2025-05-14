@@ -8,6 +8,7 @@
     <!-- PWA Meta Tags -->
     <meta name="description" content="An offline-first mental health journal to track mood, manage stress, and access emergency help.">
     <meta name="theme-color" content="#4CAF50">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="MindMatters">
@@ -41,7 +42,7 @@
     <link rel="apple-touch-startup-image" href="icons/apple-splash-640-1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="./static/css/main.css">
 </head>
 <body>
     <div id="root"></div>
@@ -53,7 +54,6 @@
         </div>
     </div>
     <!-- Scripts -->
-    <script src="../src/index.js" type="module"></script>
     <script>
         // Register Service Worker
         if ('serviceWorker' in navigator) {
