@@ -20,7 +20,7 @@
     {
       "name": "New Journal Entry",
       "short_name": "New Entry",
-      "url": "./journal",
+      "url": "./#/journal",
       "description": "Create a new journal entry"
     }
   ]

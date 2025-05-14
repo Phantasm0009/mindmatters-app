@@ -1,16 +1,20 @@
 {
   "files": {
-    "main.css": "/mindmatters-app/static/css/main.dca5cbbd.chunk.css",
-    "main.js": "/mindmatters-app/static/js/main.75405c7a.chunk.js",
+    "main.css": "/mindmatters-app/static/css/main.d99d68e2.chunk.css",
+    "main.js": "/mindmatters-app/static/js/main.bb4e86fc.chunk.js",
+    "main.js.map": "/mindmatters-app/static/js/main.bb4e86fc.chunk.js.map",
     "runtime-main.js": "/mindmatters-app/static/js/runtime-main.39afc695.js",
+    "runtime-main.js.map": "/mindmatters-app/static/js/runtime-main.39afc695.js.map",
     "static/js/2.64c6ccfe.chunk.js": "/mindmatters-app/static/js/2.64c6ccfe.chunk.js",
+    "static/js/2.64c6ccfe.chunk.js.map": "/mindmatters-app/static/js/2.64c6ccfe.chunk.js.map",
     "index.html": "/mindmatters-app/index.html",
+    "static/css/main.d99d68e2.chunk.css.map": "/mindmatters-app/static/css/main.d99d68e2.chunk.css.map",
     "static/js/2.64c6ccfe.chunk.js.LICENSE.txt": "/mindmatters-app/static/js/2.64c6ccfe.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.39afc695.js",
     "static/js/2.64c6ccfe.chunk.js",
-    "static/css/main.dca5cbbd.chunk.css",
-    "static/js/main.75405c7a.chunk.js"
+    "static/css/main.d99d68e2.chunk.css",
+    "static/js/main.bb4e86fc.chunk.js"
   ]
 }
